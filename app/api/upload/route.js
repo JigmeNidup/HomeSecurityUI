@@ -6,6 +6,7 @@ export const POST = async (req, res) => {
     // console.log(data.image);
     let response = await fetch(`${AIserver}/find`, {
       method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ imgdata: data.image }),
     });
     response = await response.json();
