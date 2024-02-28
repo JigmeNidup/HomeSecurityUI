@@ -47,11 +47,6 @@ const TestFacePage = () => {
     let imageSrc = webcamRef.current.getScreenshot();
     imageSrc = imageSrc.substring(23, String(imageSrc).length);
     let serverStatus = await SendServer(imageSrc);
-    // setTimeout(() => {
-    // //   console.log();
-
-    //   setLoading(false);
-    // }, [3000]);
     setLoading(false);
   }, [webcamRef]);
   return (

@@ -60,7 +60,8 @@ const ImageUpoad = ({ setCurrentStep, name, userId }) => {
   const capture = useCallback(async () => {
     if (count != maxImageCount) {
       setLoading(true);
-      const imageSrc = webcamRef.current.getScreenshot();
+      let imageSrc = webcamRef.current.getScreenshot();
+      imageSrc = imageSrc.substring(23, String(imageSrc).length);
       let serverStatus = await SendServer(imageSrc, count);
       if (serverStatus) {
         setLoading(false);
