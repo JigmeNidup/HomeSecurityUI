@@ -2,6 +2,7 @@
 import {
   DeleteOutlined,
   EditOutlined,
+  ExpandOutlined,
   PlusOutlined,
   SaveOutlined,
 } from "@ant-design/icons";
@@ -115,9 +116,14 @@ const FaceIDnRFID = () => {
   return (
     <main>
       <section>
-        <Link href="/faceid-rfid/newface">
-          <Button icon={<PlusOutlined />}>Enroll New Face</Button>
-        </Link>
+        <Space size="large">
+          <Link href="/faceid-rfid/newface">
+            <Button icon={<PlusOutlined />}>Enroll New Face</Button>
+          </Link>
+          <Link href="/faceid-rfid/testface">
+            <Button icon={<ExpandOutlined />}>Test Face</Button>
+          </Link>
+        </Space>
       </section>
       <section style={{ paddingTop: 20 }}>
         <Space>

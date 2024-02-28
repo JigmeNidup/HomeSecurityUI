@@ -69,12 +69,6 @@ const ImageUpoad = ({ setCurrentStep, name, userId }) => {
       } else {
         setLoading(false);
       }
-
-      // setTimeout(() => {
-      //   setLoading(false);
-      //   let c = count + 1;
-      //   setCount(c);
-      // }, [3000]);
     } else if (count == maxImageCount) {
       message.info("Maximum photo taken");
     }

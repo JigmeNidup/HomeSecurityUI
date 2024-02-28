@@ -28,8 +28,15 @@ const Nav = ({ children }) => {
             padding: 10,
           }}
         >
-          <Image src="/icon/securehome.png" height={40} width={42} alt="logo" />
-          {!collapsed && <span>Secure Home</span>}
+          <Link href="/" style={{ color: "black" }}>
+            <Image
+              src="/icon/securehome.png"
+              height={40}
+              width={42}
+              alt="logo"
+            />
+            {!collapsed && <span>Secure Home</span>}
+          </Link>
           <br />
           <hr />
         </div>
