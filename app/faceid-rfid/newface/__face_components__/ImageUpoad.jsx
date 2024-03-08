@@ -23,7 +23,6 @@ const ImageUpoad = ({ setCurrentStep, name, userId }) => {
         body: JSON.stringify({ faceid: "true" }),
       });
       response = await response.json();
-      console.log(response);
     } catch (error) {
       console.log(error.message);
     }
@@ -42,7 +41,6 @@ const ImageUpoad = ({ setCurrentStep, name, userId }) => {
         }),
       });
       response = await response.json();
-      console.log(response);
       if (response.status) {
         message.success("Image Uploaded Successful");
         return true;

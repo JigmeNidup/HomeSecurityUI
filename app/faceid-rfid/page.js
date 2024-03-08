@@ -6,7 +6,15 @@ import {
   PlusOutlined,
   SaveOutlined,
 } from "@ant-design/icons";
-import { Button, Card, Input, Popconfirm, Row, Space, message } from "antd";
+import {
+  Button,
+  Card,
+  Col,
+  Input,
+  Popconfirm,
+  Row,
+  message,
+} from "antd";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
@@ -116,21 +124,29 @@ const FaceIDnRFID = () => {
   return (
     <main>
       <section>
-        <Space size="large">
-          <Link href="/faceid-rfid/newface">
-            <Button icon={<PlusOutlined />}>Enroll New Face</Button>
-          </Link>
-          <Link href="/faceid-rfid/testface">
-            <Button icon={<ExpandOutlined />}>Test Face</Button>
-          </Link>
-        </Space>
+        <Row justify="start" gutter={[16, 16]}>
+          <Col>
+            <Link href="/faceid-rfid/newface">
+              <Button icon={<PlusOutlined />}>Enroll New Face</Button>
+            </Link>
+          </Col>
+          <Col>
+            <Link href="/faceid-rfid/testface">
+              <Button icon={<ExpandOutlined />}>Test Face</Button>
+            </Link>
+          </Col>
+        </Row>
       </section>
       <section style={{ paddingTop: 20 }}>
-        <Space>
+        <Row justify="start" gutter={[16, 16]}>
           {users.map((val, i) => {
-            return <UserCard key={i} val={val} />;
+            return (
+              <Col key={i}>
+                <UserCard val={val} />
+              </Col>
+            );
           })}
-        </Space>
+        </Row>
       </section>
     </main>
   );

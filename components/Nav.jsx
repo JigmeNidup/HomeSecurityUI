@@ -9,13 +9,19 @@ import {
 import { Button, Layout, Menu } from "antd";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { isMobile } from "react-device-detect";
 
-const { Header, Content, Sider } = Layout;
+const { Header, Sider } = Layout;
 const Nav = ({ children }) => {
   const [collapsed, setCollapsed] = useState(false);
+  useEffect(() => {
+    if (isMobile) {
+      setCollapsed(true);
+    }
+  }, [isMobile]);
   return (
-    <Layout style={{}}>
+    <Layout>
       <Sider
         style={{ minHeight: "100vh", backgroundColor: "white" }}
         trigger={null}

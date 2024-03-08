@@ -34,7 +34,6 @@ const NewFace = () => {
       });
       response = await response.json();
       setUserId(response._id);
-      // console.log(response);
     } catch (error) {
       console.log(error.message);
     }
