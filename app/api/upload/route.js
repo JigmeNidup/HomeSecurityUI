@@ -25,13 +25,13 @@ export const POST = async (req, res) => {
 
     await newUpload.save();
 
-    // let response = await fetch(`${AIserver}/find`, {
-    //   method: "POST",
-    //   headers: { "Content-Type": "application/json" },
-    //   body: JSON.stringify({ imgdata: base64Image }),
-    // });
-    // response = await response.json();
-    let response = { status: true, result: { result: false, data: "bruh" } };
+    let response = await fetch(`${AIserver}/find`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ imgdata: base64Image }),
+    });
+    response = await response.json();
+    // let response = { status: true, result: { result: false, data: "bruh" } };
     //log response
     const newLog = new Logs({
       type: "result",
