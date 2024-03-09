@@ -1,4 +1,6 @@
+import Logs from "@/models/logs";
 import fs from "fs";
+import moment from "moment";
 const AIserver = process.env.NEXT_PUBLIC_SERVER;
 
 export const POST = async (req, res) => {
@@ -18,9 +20,20 @@ export const POST = async (req, res) => {
       body: JSON.stringify({ imgdata: base64Image }),
     });
     response = await response.json();
-    // let response = "bruh";
+    console.log(response);
+    let newLog = new Logs({
+      type: "result",
+      date: moment().format("DD-MM-YYYY"),
+      time: moment().format("HH:MM:SS"),
+      message: JSON.stringify(response),
+    });
+    await newLog.save();
     if (response.status) {
-      if (response.result.result) {
+      if (response.result) {
+        return new Response(JSON.stringify(response), {
+          status: 400,
+        });
+      } else if (response.result.result) {
         return new Response(JSON.stringify(response), {
           status: 200,
         });
@@ -35,6 +48,13 @@ export const POST = async (req, res) => {
     });
   } catch (error) {
     console.log(error);
+    let newLog = new Logs({
+      type: "result",
+      date: moment().format("DD-MM-YYYY"),
+      time: moment().format("HH:MM:SS"),
+      message: error.message,
+    });
+    await newLog.save();
     return new Response(JSON.stringify("Failed to create new User"), {
       status: 500,
     });
