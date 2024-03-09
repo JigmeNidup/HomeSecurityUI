@@ -20,8 +20,8 @@ export const POST = async (req, res) => {
       body: JSON.stringify({ imgdata: base64Image }),
     });
     response = await response.json();
-    console.log(response);
-    let newLog = new Logs({
+    // let response = { status: true, result: { result: false, data: "bruh" } };
+    const newLog = new Logs({
       type: "result",
       date: moment().format("DD-MM-YYYY"),
       time: moment().format("HH:MM:SS"),
@@ -29,7 +29,7 @@ export const POST = async (req, res) => {
     });
     await newLog.save();
     if (response.status) {
-      if (response.result) {
+      if (response.result == null) {
         return new Response(JSON.stringify(response), {
           status: 400,
         });
@@ -42,20 +42,20 @@ export const POST = async (req, res) => {
           status: 400,
         });
       }
+    } else {
+      return new Response(JSON.stringify(response), {
+        status: 400,
+      });
     }
-    return new Response(JSON.stringify(response), {
-      status: 400,
-    });
   } catch (error) {
-    console.log(error);
     let newLog = new Logs({
-      type: "result",
+      type: "error",
       date: moment().format("DD-MM-YYYY"),
       time: moment().format("HH:MM:SS"),
       message: error.message,
     });
     await newLog.save();
-    return new Response(JSON.stringify("Failed to create new User"), {
+    return new Response(JSON.stringify("Failed to upload image"), {
       status: 500,
     });
   }

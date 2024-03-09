@@ -10,12 +10,9 @@ export const connectToDB = async () => {
     return;
   }
   try {
-    await mongoose.connect(process.env.MONGODB_URI),
-      {
-        dbName: "homesecurity",
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-      };
+    await mongoose.connect(process.env.MONGODB_URI, {
+      dbName: "homesecurity",
+    });
     isConnected = true;
     // console.log("MongoDB connected");
   } catch (error) {
