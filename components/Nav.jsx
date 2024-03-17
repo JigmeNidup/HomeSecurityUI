@@ -14,12 +14,12 @@ import { isMobile } from "react-device-detect";
 
 const { Header, Sider } = Layout;
 const Nav = ({ children }) => {
-  const [collapsed, setCollapsed] = useState(false);
-  useEffect(() => {
-    if (isMobile) {
-      setCollapsed(true);
-    }
-  }, [isMobile]);
+  const [collapsed, setCollapsed] = useState(isMobile);
+  // useEffect(() => {
+  //   if (isMobile) {
+  //     setCollapsed(true);
+  //   }
+  // }, [isMobile]);
   return (
     <Layout>
       <Sider
@@ -52,22 +52,22 @@ const Nav = ({ children }) => {
           items={[
             {
               key: 1,
-              label: <Link href="/faceid-rfid">FACE ID & RFID</Link>,
+              label: <Link href="/dashboard/faceid-rfid">FACE ID & RFID</Link>,
               icon: <CameraOutlined />,
             },
             {
               key: 2,
-              label: <Link href="/temperature">TEMPERATURE</Link>,
+              label: <Link href="/dashboard/temperature">TEMPERATURE</Link>,
               icon: <AreaChartOutlined />,
             },
             {
               key: 3,
-              label: <Link href="/humidity">HUMIDITY</Link>,
+              label: <Link href="/dashboard/humidity">HUMIDITY</Link>,
               icon: <AreaChartOutlined />,
             },
             {
               key: 4,
-              label: <Link href="/gas">GAS</Link>,
+              label: <Link href="/dashboard/gas">GAS</Link>,
               icon: <DotChartOutlined />,
             },
           ]}
