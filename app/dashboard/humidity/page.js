@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { useDashboardDataStore } from "../layout";
-import { Skeleton } from "antd";
+import { Card, Col, Row, Skeleton, Statistic } from "antd";
 
 const HumidityPage = () => {
   let { client, clientConnected } = useDashboardDataStore();
@@ -27,10 +27,15 @@ const HumidityPage = () => {
 
   return clientConnected ? (
     <div>
-      HumidityPage
       <br />
       <br />
-      <span>Humidity: {Data.humi}%</span>
+      <Row justify="start" gutter={[16, 16]}>
+        <Col>
+          <Card bordered={false}>
+            <Statistic title="Humidity" value={Data.humi} suffix="%" />
+          </Card>
+        </Col>
+      </Row>
     </div>
   ) : (
     <Skeleton />

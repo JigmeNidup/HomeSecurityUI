@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { useDashboardDataStore } from "../layout";
-import { Skeleton } from "antd";
+import { Card, Col, Row, Skeleton, Statistic } from "antd";
 
 const GasPage = () => {
   let { client, clientConnected } = useDashboardDataStore();
@@ -28,13 +28,28 @@ const GasPage = () => {
 
   return clientConnected ? (
     <div>
-      GasPage
       <br />
       <br />
-      <span>MQ135(Air Quality): {Data.mq135}</span>
-      <br />
-      <br />
-      <span>MQ9(Flammable Gas): {Data.mq9}</span>
+      <Row justify="start" gutter={[16,16]}>
+        <Col>
+          <Card bordered={false}>
+            <Statistic
+              title="MQ135 (Air Quality)"
+              value={Data.mq135}
+              suffix="ppm"
+            />
+          </Card>
+        </Col>
+        <Col>
+          <Card bordered={false}>
+            <Statistic
+              title="MQ9 (Flammable Gas)"
+              value={Data.mq9}
+              suffix="ppm"
+            />
+          </Card>
+        </Col>
+      </Row>
     </div>
   ) : (
     <Skeleton />
