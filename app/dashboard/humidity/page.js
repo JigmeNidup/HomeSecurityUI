@@ -29,7 +29,8 @@ const HumidityPage = () => {
     <div>
       HumidityPage
       <br />
-      <span>{Data.humi}</span>
+      <br />
+      <span>Humidity: {Data.humi}%</span>
     </div>
   ) : (
     <Skeleton />

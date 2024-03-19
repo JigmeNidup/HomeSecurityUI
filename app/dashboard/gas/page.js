@@ -30,7 +30,11 @@ const GasPage = () => {
     <div>
       GasPage
       <br />
-      <span>{Data.mq135}</span>
+      <br />
+      <span>MQ135(Air Quality): {Data.mq135}</span>
+      <br />
+      <br />
+      <span>MQ9(Flammable Gas): {Data.mq9}</span>
     </div>
   ) : (
     <Skeleton />
