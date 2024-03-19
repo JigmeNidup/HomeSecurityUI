@@ -42,7 +42,7 @@ const TemperaturePage = () => {
           />
         </Card>
       );
-    }else if (Data.tempC >= 26 && Data.tempC < 32) {
+    } else if (Data.tempC >= 26 && Data.tempC < 32) {
       return (
         <Card>
           <Statistic
@@ -86,6 +86,9 @@ const TemperaturePage = () => {
       <br />
       <Row justify="start" gutter={[16, 16]}>
         <Col>
+          <TemperatureRemark />
+        </Col>
+        <Col>
           <Card bordered={false}>
             <Statistic title="Temperature" value={Data.tempC} suffix="&deg;C" />
           </Card>
@@ -94,9 +97,6 @@ const TemperaturePage = () => {
           <Card bordered={false}>
             <Statistic title="Temperature" value={Data.tempF} suffix="&deg;F" />
           </Card>
-        </Col>
-        <Col>
-          <TemperatureRemark />
         </Col>
       </Row>
     </div>

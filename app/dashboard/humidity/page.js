@@ -93,12 +93,12 @@ const HumidityPage = () => {
       <br />
       <Row justify="start" gutter={[16, 16]}>
         <Col>
+          <HumidityRemarks />
+        </Col>
+        <Col>
           <Card bordered={false}>
             <Statistic title="Humidity" value={Data.humi} suffix="%" />
           </Card>
-        </Col>
-        <Col>
-          <HumidityRemarks />
         </Col>
       </Row>
     </div>

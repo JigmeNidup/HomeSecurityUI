@@ -126,12 +126,12 @@ const FaceIDnRFID = () => {
       <section>
         <Row justify="start" gutter={[16, 16]}>
           <Col>
-            <Link href="/faceid-rfid/newface">
+            <Link href="/dashboard/faceid-rfid/newface">
               <Button icon={<PlusOutlined />}>Enroll New Face</Button>
             </Link>
           </Col>
           <Col>
-            <Link href="/faceid-rfid/testface">
+            <Link href="/dashboard/faceid-rfid/testface">
               <Button icon={<ExpandOutlined />}>Test Face</Button>
             </Link>
           </Col>
