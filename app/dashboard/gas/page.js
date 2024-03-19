@@ -26,6 +26,69 @@ const GasPage = () => {
     }
   }, [client]);
 
+  const MQ135Remarks = () => {
+    if (Data.mq135 < 25) {
+      return (
+        <Card>
+          <Statistic
+            title="Remark"
+            value="Poor low humidity levels"
+            valueStyle={{
+              color: "#ff5b32",
+            }}
+          />
+        </Card>
+      );
+    } else if (Data.mq135 >= 25 && Data.mq135 < 30) {
+      return (
+        <Card>
+          <Statistic
+            title="Remark"
+            value="Fair humidity levels, keep monitoring"
+            valueStyle={{
+              color: "#f5b444",
+            }}
+          />
+        </Card>
+      );
+    } else if (Data.mq135 >= 30 && Data.mq135 < 60) {
+      return (
+        <Card>
+          <Statistic
+            title="Remark"
+            value="Healthy levels"
+            valueStyle={{
+              color: "#6dd559",
+            }}
+          />
+        </Card>
+      );
+    } else if (Data.mq135 >= 60 && Data.mq135 < 70) {
+      return (
+        <Card>
+          <Statistic
+            title="Remark"
+            value="Fair humidity levels, keep monitoring"
+            valueStyle={{
+              color: "#f5b444",
+            }}
+          />
+        </Card>
+      );
+    } else {
+      return (
+        <Statistic
+          title="Remark"
+          value="Poor high humidity levels"
+          valueStyle={{
+            color: "#ff5b32",
+          }}
+        />
+      );
+    }
+  };
+
+
   return clientConnected ? (
     <div>
       <br />
