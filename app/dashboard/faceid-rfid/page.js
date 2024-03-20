@@ -148,6 +148,10 @@ const FaceIDnRFID = () => {
           })}
         </Row>
       </section>
+      <br/>
+      <section>
+          
+      </section>
     </main>
   );
 };

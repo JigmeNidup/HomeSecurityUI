@@ -60,7 +60,7 @@ const DashboardLayout = ({ children }) => {
 
         client.subscribe("temp_humi");
         client.subscribe("gas_sensor");
-
+        client.subscribe("fan_relay/post");
         setClientConnected(true);
       });
       client.on("error", (error) => {
